@@ -1,11 +1,11 @@
 // pages/Lexique.jsx
 
 import { useState } from "react";
-import { Lexique} from "../data/Lexique";
+import { lexique} from "../data/lexique";
 
 const CATEGORIES = ["frontend", "backend", "javascript", "bdd", "css", "html", "anglaisPro"];
 
-function Lexique () {
+function lexique () {
     const [categorie, setCategorie] = useState("javascript");
     const [recherche, setRecherche] = useState ("");
 
@@ -42,4 +42,4 @@ return (
 );
 }
 
-export default Lexique;
+export default lexique;
