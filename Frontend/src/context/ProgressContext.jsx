@@ -2,7 +2,7 @@
 
 import { createContext,useState,useEffect, Children} from "react";
 
-export const Progre = createContext ();
+export const ProgressContext = createContext ();
 
 const CLE_STOCKAGE = "dwmm-progression";
 
@@ -36,7 +36,7 @@ export function ProgressProvider ({children}) {
     function mettreAJour(competence, valeur) {
         setProgression((prev) => ({
             ...prev,
-            [competence]: math.max(0, math.min(100, valeur)),
+            [competence]: Math.max(0, Math.min(100, valeur)),
         }));
     }
 
