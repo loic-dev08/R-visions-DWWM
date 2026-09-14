@@ -8,12 +8,13 @@ const CLE_STOCKAGE = "dwmm-progression";
 
 // Compétences de départ, à ajuster selon ton REAC
 const PROGRESSION_INITIALE = {
-    "REACT_ROUTER": 0,
-    "CONTEXT_API": 0,
-    "Express": 0,
-    "Sequelize": 0,
-    "Base de données": 0,
-    "Tests": 0,
+    "frontend": 0,
+    "backend": 0,
+    "javascript": 0,
+    "bdd": 0,
+    "css": 0,
+    "html": 0,
+    "anglaisPro": 0,
 };
 
 function chargerProgression() {
