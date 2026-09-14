@@ -1,8 +1,8 @@
 
 // App.jsx
 
-import { ProgressProvider } from "./context/ProgressContext";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { ProgressProvider } from "./context/ProgressContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Accueil from "./pages/Accueil";
