@@ -1,6 +1,7 @@
 
 // App.jsx
 
+import { ProgressProvider } from "./context/ProgressContext";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -11,6 +12,9 @@ import JavaScript from "./pages/JavaScript";
 import BaseDeDonnes from "./pages/BaseDeDonnees";
 import Quiz from "./pages/Quiz";
 
+<ProgressProvider>
+  <App />
+</ProgressProvider>
 
 function App () {
 
