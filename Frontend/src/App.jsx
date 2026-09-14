@@ -11,6 +11,7 @@ import Frontend from "./pages/Frontend";
 import JavaScript from "./pages/JavaScript";
 import BaseDeDonnes from "./pages/BaseDeDonnees";
 import Quiz from "./pages/Quiz";
+import  Lexique from "./pages/Lexique";
 
 <ProgressProvider>
   <App />
@@ -28,6 +29,7 @@ function App () {
         <Route path="/javascript" element={<JavaScript />} />
         <Route path="/bdd" element={<BaseDeDonnes />} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/lexique" element={<Lexique />} />
 
       </Routes>
     </main>
