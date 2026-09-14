@@ -1,6 +1,6 @@
 // pages/Quiz.jsx
 import { useState, useContext } from "react";
-import { quiz } from "../data/Quiz";
+import { quiz } from "../data/quiz";
 import { ProgressContext } from "../context/ProgressContext";
 
 const CATEGORIES = ["frontend", "backend", "javascript", "bdd", "css", "html", "anglaisPro"];

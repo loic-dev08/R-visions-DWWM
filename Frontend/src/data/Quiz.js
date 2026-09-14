@@ -1,6 +1,6 @@
 // data/Quiz.js
 
-export const Quiz = {
+export const quiz = {
     javascript: [
         {
             question: "Que retourne typeof null en javascript ?",
