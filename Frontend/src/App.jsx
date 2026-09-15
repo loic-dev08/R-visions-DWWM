@@ -10,6 +10,9 @@ import JavaScript from "./pages/JavaScript";
 import BaseDeDonnees from "./pages/BaseDeDonnees";
 import Quiz from "./pages/Quiz";
 import Lexique from "./pages/Lexique";
+import CSS from "./pages/CSS";
+import HTML from "./pages/HTML";
+import AnglaisPro from "./pages/AnglaisPro";
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
             <Route path="/bdd" element={<BaseDeDonnees />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/lexique" element={<Lexique />} />
+            <Route path="/css" element={<CSS />} />
+            <Route path="html" element={<HTML />} />
+            <Route path="anglais" element={<AnglaisPro />} />
           </Routes>
         </main>
         <Footer />

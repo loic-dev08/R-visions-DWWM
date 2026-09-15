@@ -15,6 +15,9 @@ function Navbar() {
                 <li><Navlink to="/" bdd>BaseDeDonnes</Navlink></li>
                < li><Navlink to="/" quiz>Quiz</Navlink></li>
                <li><Navlink to="/" lexique>Lexique</Navlink></li>
+               <li><Navlink to="/css">CSS</Navlink></li>
+               <li><Navlink to="/html">HTML</Navlink></li>
+               <li><Navlink to="/anglais">AnglaisPro</Navlink></li>
 
             </ul>
 
