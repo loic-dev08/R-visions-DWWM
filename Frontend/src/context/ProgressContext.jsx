@@ -1,55 +1,62 @@
 // context/ProgressContext.jsx
+import { createContext, useState, useEffect } from "react";
 
-import { createContext,useState,useEffect, Children} from "react";
+export const ProgressContext = createContext();
 
-export const ProgressContext = createContext ();
+const CLE_STOCKAGE = "dwwm-progression";
 
-const CLE_STOCKAGE = "dwmm-progression";
-
-// Compétences de départ, à ajuster selon ton REAC
-const PROGRESSION_INITIALE = {
-    "frontend": 0,
-    "backend": 0,
-    "javascript": 0,
-    "bdd": 0,
-    "css": 0,
-    "html": 0,
-    "anglaisPro": 0,
+const HISTORIQUE_INITIAL = {
+  frontend: [],
+  backend: [],
+  javascript: [],
+  bdd: [],
+  css: [],
+  html: [],
+  anglaisPro: [],
 };
 
-function chargerProgression() {
-    try {
-        const donnees = localStorage.getItem(CLE_STOCKAGE) ;
-        return donnees ? JSON.parse (donnees) : PROGRESSION_INITIALE;
-    } catch {
-        return PROGRESSION_INITIALE ;
-    }
+function chargerHistorique() {
+  try {
+    const donnees = localStorage.getItem(CLE_STOCKAGE);
+    return donnees ? JSON.parse(donnees) : HISTORIQUE_INITIAL;
+  } catch {
+    return HISTORIQUE_INITIAL;
+  }
 }
 
-export function ProgressProvider ({children}) {
-    const [progression, setProgression] = useState(chargerProgression);
+export function ProgressProvider({ children }) {
+  const [historique, setHistorique] = useState(chargerHistorique);
 
-    useEffect (() => {
-        localStorage.setItem(CLE_STOCKAGE, JSON.stringify(progression));
-    }, [progression]);
+  useEffect(() => {
+    localStorage.setItem(CLE_STOCKAGE, JSON.stringify(historique));
+  }, [historique]);
 
-    function mettreAJour(competence, valeur) {
-        setProgression((prev) => ({
-            ...prev,
-            [competence]: Math.max(0, Math.min(100, valeur)),
-        }));
-    }
+  // Ajoute un nouveau score horodaté pour une compétence
+  function mettreAJour(competence, valeur) {
+    const score = Math.max(0, Math.min(100, valeur));
+    const entree = { date: new Date().toISOString().slice(0, 10), score };
 
-    function reinitialiser() {
-        setProgression(PROGRESSION_INITIALE);
-    }
+    setHistorique((prev) => ({
+      ...prev,
+      [competence]: [...(prev[competence] || []), entree],
+    }));
+  }
 
-    return (
-        <ProgressContext.Provider value={{progression, mettreAJour,reinitialiser}}>
-        {children}
-        </ProgressContext.Provider>
+  function reinitialiser() {
+    setHistorique(HISTORIQUE_INITIAL);
+  }
 
+  // Valeur actuelle = dernier score enregistré (pour compatibilité avec le footer, les sliders, etc.)
+  const progression = Object.fromEntries(
+    Object.entries(historique).map(([competence, entrees]) => [
+      competence,
+      entrees.length > 0 ? entrees[entrees.length - 1].score : 0,
+    ])
+  );
 
-        
-    );
+  return (
+    <ProgressContext.Provider value={{ progression, historique, mettreAJour, reinitialiser }}>
+      {children}
+    </ProgressContext.Provider>
+  );
 }

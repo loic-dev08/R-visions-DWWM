@@ -13,6 +13,7 @@ import Lexique from "./pages/Lexique";
 import CSS from "./pages/CSS";
 import HTML from "./pages/HTML";
 import AnglaisPro from "./pages/AnglaisPro";
+import Graphique from "./pages/Graphique";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/css" element={<CSS />} />
             <Route path="html" element={<HTML />} />
             <Route path="anglais" element={<AnglaisPro />} />
+            <Route path="graphique" element={<Graphique />} />
           </Routes>
         </main>
         <Footer />
