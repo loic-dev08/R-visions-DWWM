@@ -24,8 +24,19 @@ body {
 }
 
 .hero {
-  background-position: center 30%;
-  /* essaie différentes valeurs : "center bottom", "right center", etc. */
+  width: 100%;
+  min-height: 60vh;
+  background-image: 
+  linear-gradient(rgba(10, 20, 50,0.6), rgba(10, 20,50,0.6)),
+  url("/fond-dev.jpg");
+  background-size: 180%;
+  background-position: right center;
+  background-repeat: no-repeat;
+  display:flex ;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+ 
 }
 
 .card {
