@@ -2,7 +2,6 @@
 import { useContext, useState, useEffect } from "react";
 import { ProgressContext } from "../context/ProgressContext";
 
-// À modifier dès que la date est fixée
 const DATE_EXAMEN = "2027-01-27T09:00:00";
 const SEUIL_ALERTE_JOURS = 7;
 
@@ -16,8 +15,9 @@ function calculerRestant(dateCible) {
   const jours = Math.floor(diffMs / (1000 * 60 * 60 * 24));
   const heures = Math.floor((diffMs / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((diffMs / (1000 * 60)) % 60);
+  const secondes = Math.floor((diffMs / 1000) % 60);
 
-  return { jours, heures, minutes };
+  return { jours, heures, minutes, secondes };
 }
 
 function Footer() {
@@ -27,7 +27,7 @@ function Footer() {
   useEffect(() => {
     const intervalle = setInterval(() => {
       setRestant(calculerRestant(DATE_EXAMEN));
-    }, 60000); // mise à jour chaque minute
+    }, 1000); // mise à jour chaque seconde
 
     return () => clearInterval(intervalle);
   }, []);
@@ -42,8 +42,8 @@ function Footer() {
     <footer className="site-footer">
       <div className="footer-countdown">
         {restant ? (
-          <p>
-            Plus que <strong>{restant.jours}j {restant.heures}h {restant.minutes}min</strong> avant l'examen
+          <p className="chrono">
+            {String(restant.jours).padStart(2, "0")}j : {String(restant.heures).padStart(2, "0")}h : {String(restant.minutes).padStart(2, "0")}min : {String(restant.secondes).padStart(2, "0")}s
           </p>
         ) : (
           <p>Date de l'examen dépassée ou non confirmée</p>
