@@ -1,13 +1,18 @@
 // data/Quiz.js
 
+// data/quiz.js (extrait, à répéter pour chaque question)
 export const quiz = {
-    javascript: [
-        {
-            question: "Que retourne typeof null en javascript ?",
-            options: ["null", "undefined", "object", "number"],
-            reponse: "object",
-        },
-    ],
+  javascript: [
+    {
+      question: "Que retourne typeof null en JavaScript ?",
+      options: ["null", "undefined", "object", "number"],
+      reponse: "object",
+      termeLie: "Closure", // doit correspondre à un "terme" dans lexique.js
+    },
+    // ...
+  ],
+  // ...
+};
 
     css: [
         {
@@ -187,3 +192,4 @@ export const quiz = {
     },
   ],
 };
+

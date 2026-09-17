@@ -2,6 +2,7 @@
 import { useState, useContext } from "react";
 import { quiz } from "../data/quiz";
 import { ProgressContext } from "../context/ProgressContext";
+import PopupExplication from "../components/PopupExplication";
 
 const CATEGORIES = ["frontend", "backend", "javascript", "bdd", "css", "html", "anglaisPro"];
 
@@ -10,6 +11,7 @@ function Quiz() {
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [termine, setTermine] = useState(false);
+  const [popup, setPopup] = useState(null); // { correct: bool } ou null
   const { mettreAJour } = useContext(ProgressContext);
 
   const questions = quiz[categorie] || [];
@@ -18,11 +20,17 @@ function Quiz() {
   function repondre(option) {
     const bonneReponse = option === questionActuelle.reponse;
     if (bonneReponse) setScore((s) => s + 1);
+    setPopup({ correct: bonneReponse });
+  }
+
+  function fermerPopup() {
+    setPopup(null);
 
     if (indexQuestion + 1 < questions.length) {
       setIndexQuestion((i) => i + 1);
     } else {
-      const pourcentage = Math.round(((bonneReponse ? score + 1 : score) / questions.length) * 100);
+      const scoreFinal = popup.correct ? score + 1 : score;
+      const pourcentage = Math.round((scoreFinal / questions.length) * 100);
       mettreAJour(categorie, pourcentage);
       setTermine(true);
     }
@@ -33,6 +41,7 @@ function Quiz() {
     setIndexQuestion(0);
     setScore(0);
     setTermine(false);
+    setPopup(null);
   }
 
   return (
@@ -57,6 +66,15 @@ function Quiz() {
         </div>
       ) : (
         <p>Pas encore de questions pour cette catégorie.</p>
+      )}
+
+      {popup && (
+        <PopupExplication
+          categorie={categorie}
+          termeLie={questionActuelle.termeLie}
+          correct={popup.correct}
+          onFermer={fermerPopup}
+        />
       )}
     </div>
   );
