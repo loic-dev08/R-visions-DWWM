@@ -36,7 +36,8 @@ function Quiz() {
   }
 
   return (
-    <div>
+    <div className="page-competence">
+      <h2>Quiz</h2>
       <select value={categorie} onChange={(e) => recommencer(e.target.value)}>
         {CATEGORIES.map((cat) => (
           <option key={cat} value={cat}>{cat}</option>
@@ -60,4 +61,5 @@ function Quiz() {
     </div>
   );
 }
+
 export default Quiz;
