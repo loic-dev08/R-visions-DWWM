@@ -7,13 +7,12 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <button
-        className="burger"
-        onClick={() => setOuvert(!ouvert)}
-        aria-label="Ouvrir le menu"
-      >
-        ☰
-      </button>
+      <div className="navbar-top">
+        <img src="/revision.png" alt="Logo Révisions DWWM" className="navbar-logo" />
+        <button className="burger" onClick={() => setOuvert(!ouvert)} aria-label="Ouvrir le menu">
+          ☰
+        </button>
+      </div>
 
       <ul className={ouvert ? "nav-liste ouverte" : "nav-liste"}>
         <li><NavLink to="/" end onClick={() => setOuvert(false)}>Accueil</NavLink></li>

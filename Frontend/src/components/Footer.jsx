@@ -1,9 +1,31 @@
 // Footer.jsx
 import { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ProgressContext } from "../context/ProgressContext";
 
 const DATE_EXAMEN = "2027-01-27T09:00:00";
 const SEUIL_ALERTE_JOURS = 7;
+
+// Correspondance entre les clés de progression et les routes réelles
+const ROUTES_COMPETENCES = {
+  frontend: "/frontend",
+  backend: "/backend",
+  javascript: "/javascript",
+  bdd: "/bdd",
+  css: "/css",
+  html: "/html",
+  anglaisPro: "/anglais",
+};
+
+const LABELS_COMPETENCES = {
+  frontend: "Frontend",
+  backend: "Backend",
+  javascript: "JavaScript",
+  bdd: "Base de données",
+  css: "CSS",
+  html: "HTML",
+  anglaisPro: "Anglais pro",
+};
 
 function calculerRestant(dateCible) {
   const maintenant = new Date();
@@ -27,14 +49,11 @@ function Footer() {
   useEffect(() => {
     const intervalle = setInterval(() => {
       setRestant(calculerRestant(DATE_EXAMEN));
-    }, 1000); // mise à jour chaque seconde
-
+    }, 1000);
     return () => clearInterval(intervalle);
   }, []);
 
-  const aRevoir = Object.entries(progression)
-    .filter(([, valeur]) => valeur < 50)
-    .map(([nom]) => nom);
+  const aRevoir = Object.entries(progression).filter(([, valeur]) => valeur < 50);
 
   const alerteActive = restant && restant.jours <= SEUIL_ALERTE_JOURS;
 
@@ -68,13 +87,19 @@ function Footer() {
       {aRevoir.length > 0 && (
         <div className="footer-reminder">
           <p>À revoir en priorité :</p>
-          <ul>
-            {aRevoir.map((competence) => (
-              <li key={competence}>{competence}</li>
+          <ul className="footer-competences">
+            {aRevoir.map(([cle]) => (
+              <li key={cle}>
+                <Link to={ROUTES_COMPETENCES[cle]}>{LABELS_COMPETENCES[cle]}</Link>
+              </li>
             ))}
           </ul>
         </div>
       )}
+
+      <p className="footer-credit">
+        Réalisé par Loïc LEOTET - Septembre 2026 - Tous droits réservés.
+      </p>
     </footer>
   );
 }
