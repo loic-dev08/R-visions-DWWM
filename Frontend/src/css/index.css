@@ -18,15 +18,14 @@ html, body, #root {
 }
 
 body {
-  margin: 0;
   font-family: system-ui, sans-serif;
-  background-image:
-  linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
-  url("/fond-dev.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-color:#f4f8fb; /* fond neutre par défaut */
+ 
+}
+
+.hero {
+  background-position: center 30%;
+  /* essaie différentes valeurs : "center bottom", "right center", etc. */
 }
 
 .card {
@@ -47,7 +46,6 @@ body {
 
 /* ---------- Pages de compétence ---------- */
 .page-competence {
-  background-color: #ffffff;
   min-height: 100vh;
   padding: 2rem;
   text-align: center;
@@ -84,7 +82,6 @@ body {
 /* ---------- Navbar ---------- */
 .navbar {
   position: relative;
-  background-color: #ffffff;
   border: 2px solid #006994;
   border-radius: 8px;
   padding: 0.75rem 1rem;
@@ -143,7 +140,7 @@ body {
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.35);
   border: 2px solid #006994;
   border-radius: 8px;
   padding: 1rem;

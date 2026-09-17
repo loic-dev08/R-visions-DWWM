@@ -1,6 +1,6 @@
 // pages/Accueil.jsx
 import { Link } from "react-router-dom";
-import "./Accueil.css";
+import "../css/Accueil.css";
 
 const COMPETENCES = [
   { nom: "Frontend", route: "/frontend" },
