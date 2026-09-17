@@ -21,7 +21,7 @@ body {
   margin: 0;
   font-family: system-ui, sans-serif;
   background-image:
-  linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+  linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
   url("/fond-dev.jpg");
   background-size: cover;
   background-position: center;
@@ -29,9 +29,18 @@ body {
   background-repeat: no-repeat;
 }
 
+.card {
+  background-color: rgba(227, 242, 253, 0.9);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 220px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15 ease;
+}
+
 .accueil {
-  min-height:  100vh;
-  padding: 2rem;
+  min-height: auto;
+  padding: 0;
   text-align: center;
   /*background-color retiré pour laisser transparaître le fond global */
 }
@@ -86,7 +95,7 @@ body {
 .navbar-top {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
 }
 

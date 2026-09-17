@@ -1,6 +1,6 @@
 // pages/Accueil.jsx
 import { Link } from "react-router-dom";
-import "../css/Accueil.css";
+import "./Accueil.css";
 
 const COMPETENCES = [
   { nom: "Frontend", route: "/frontend" },
@@ -15,10 +15,17 @@ const COMPETENCES = [
 function Accueil() {
   return (
     <div className="accueil">
-      <h1>Révisions DWWM</h1>
-      <p className="accueil-sous-titre">Compétences REAC à réviser</p>
+      <section className="hero">
+        <div className="hero-contenu">
+          <h1>Révisions DWWM</h1>
+          <p>Compétences REAC à réviser</p>
+          <a href="#competences" className="hero-bouton">
+            Commencer mes révisions
+          </a>
+        </div>
+      </section>
 
-      <div className="cards-container">
+      <div id="competences" className="cards-container">
         {COMPETENCES.map((competence) => (
           <div className="card" key={competence.nom}>
             <h2>{competence.nom}</h2>
