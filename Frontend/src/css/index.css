@@ -238,6 +238,62 @@ body {
   transition: transform 0.15s ease;
 }
 
+/* Mobile */
+@media (max-width: 600px) {
+  .quiz-carte {
+    padding: 1.2rem;
+  }
+  .lexique-grille {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Media queries : toujours en dernier ---------- */
+
+/* Tablette */
+@media (max-width: 900px) {
+  .nav-liste {
+    gap: 1rem;
+  }
+  .cards-container {
+    gap: 1rem;
+  }
+  .card {
+    width: 45%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-liste {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem;
+  }
+
+  .nav-liste.ouverte {
+    display: flex;
+  }
+
+  .accueil {
+    padding: 1rem;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
 /* ---------- Quiz ---------- */
 .quiz-selecteur {
   margin-bottom: 1.5rem;
@@ -366,58 +422,11 @@ body {
   line-height: 1.4;
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .quiz-carte {
     padding: 1.2rem;
   }
   .lexique-grille {
     grid-template-columns: 1fr;
-  }
-}
-
-/* ---------- Media queries : toujours en dernier ---------- */
-
-/* Tablette */
-@media (max-width: 900px) {
-  .nav-liste {
-    gap: 1rem;
-  }
-  .cards-container {
-    gap: 1rem;
-  }
-  .card {
-    width: 45%;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .burger {
-    display: block;
-  }
-
-  .nav-liste {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2.5rem;
-  }
-
-  .nav-liste.ouverte {
-    display: flex;
-  }
-
-  .accueil {
-    padding: 1rem;
-  }
-
-  .cards-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 90%;
   }
 }
