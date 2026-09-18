@@ -1,31 +1,5 @@
-// data/Quiz.js
-
-// data/quiz.js (extrait, à répéter pour chaque question)
+// data/quiz.js
 export const quiz = {
-  javascript: [
-    {
-      question: "Que retourne typeof null en JavaScript ?",
-      options: ["null", "undefined", "object", "number"],
-      reponse: "object",
-      termeLie: "Closure", // doit correspondre à un "terme" dans lexique.js
-    },
-    // ...
-  ],
-  // ...
-};
-
-    css: [
-        {
-            question: "Quelle propriété CSS gère l'espacement interne d'un élément ?",
-            options: ["margin","padding", "gap", "border"],
-            reponse: "margin",
-        },
-    ],
-
-    // même structure pour backend , bdd , frontend, html, anglaisPro
-
-    // data/quiz.js
-
   html: [
     {
       question: "Quelle balise définit le contenu principal d'une page ?",
@@ -36,6 +10,7 @@ export const quiz = {
       question: "L'attribut alt sur une balise <img> est obligatoire pour l'accessibilité.",
       options: ["Vrai", "Faux"],
       reponse: "Vrai",
+      termeLie: "Attribut ARIA",
     },
     {
       question: "Quelle balise permet de créer un formulaire ?",
@@ -46,6 +21,7 @@ export const quiz = {
       question: "La balise <article> peut contenir plusieurs <section>.",
       options: ["Vrai", "Faux"],
       reponse: "Vrai",
+      termeLie: "Sémantique",
     },
   ],
 
@@ -54,11 +30,13 @@ export const quiz = {
       question: "Quelle propriété CSS gère l'espacement interne d'un élément ?",
       options: ["margin", "padding", "gap", "border"],
       reponse: "padding",
+      termeLie: "Box-sizing",
     },
     {
       question: "Flexbox et Grid font exactement la même chose.",
       options: ["Vrai", "Faux"],
       reponse: "Faux",
+      termeLie: "Flexbox",
     },
     {
       question: "Quelle unité CSS est relative à la taille de la police racine ?",
@@ -82,6 +60,7 @@ export const quiz = {
       question: "const empêche de modifier les propriétés d'un objet.",
       options: ["Vrai", "Faux"],
       reponse: "Faux",
+      termeLie: "Destructuring",
     },
     {
       question: "Quelle méthode transforme un tableau sans modifier l'original ?",
@@ -92,6 +71,7 @@ export const quiz = {
       question: "Une closure permet à une fonction de garder accès aux variables de son contexte de création.",
       options: ["Vrai", "Faux"],
       reponse: "Vrai",
+      termeLie: "Closure",
     },
     {
       question: "Que fait l'opérateur === que === ne fait pas ?",
@@ -105,11 +85,13 @@ export const quiz = {
       question: "Dans React, un composant fonctionnel doit toujours retourner un seul élément racine.",
       options: ["Vrai", "Faux"],
       reponse: "Vrai",
+      termeLie: "Composant",
     },
     {
       question: "Quel hook permet de mémoriser une valeur entre les rendus sans provoquer de re-render ?",
       options: ["useState", "useRef", "useEffect", "useMemo"],
       reponse: "useRef",
+      termeLie: "Hook",
     },
     {
       question: "useEffect s'exécute avant que le DOM soit mis à jour.",
@@ -128,11 +110,13 @@ export const quiz = {
       question: "Quel code HTTP indique une ressource créée avec succès ?",
       options: ["200", "201", "204", "400"],
       reponse: "201",
+      termeLie: "Endpoint",
     },
     {
       question: "Un middleware Express peut interrompre la chaîne de traitement d'une requête.",
       options: ["Vrai", "Faux"],
       reponse: "Vrai",
+      termeLie: "Middleware",
     },
     {
       question: "Quelle méthode HTTP est idempotente ?",
@@ -143,6 +127,7 @@ export const quiz = {
       question: "Une API REST doit obligatoirement retourner du JSON.",
       options: ["Vrai", "Faux"],
       reponse: "Faux",
+      termeLie: "API REST",
     },
   ],
 
@@ -156,16 +141,19 @@ export const quiz = {
       question: "Une clé étrangère peut référencer la clé primaire d'une autre table.",
       options: ["Vrai", "Faux"],
       reponse: "Vrai",
+      termeLie: "Clé étrangère",
     },
     {
       question: "Quel type de jointure retourne uniquement les lignes correspondant dans les deux tables ?",
       options: ["LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "FULL JOIN"],
       reponse: "INNER JOIN",
+      termeLie: "Jointure",
     },
     {
       question: "La normalisation d'une base de données vise à réduire la redondance des données.",
       options: ["Vrai", "Faux"],
       reponse: "Vrai",
+      termeLie: "Normalisation",
     },
   ],
 
@@ -174,22 +162,25 @@ export const quiz = {
       question: "Comment dit-on 'cahier des charges' en anglais ?",
       options: ["Specifications", "Requirements document", "Deliverable", "Both A and B are used"],
       reponse: "Both A and B are used",
+      termeLie: "Requirements",
     },
     {
       question: "'Deadline' signifie une réunion de suivi de projet.",
       options: ["Vrai", "Faux"],
       reponse: "Faux",
+      termeLie: "Deadline",
     },
     {
       question: "Quel terme désigne un correctif rapide en anglais technique ?",
       options: ["Patch", "Release", "Rollback", "Sprint"],
       reponse: "Patch",
+      termeLie: "Bug fix / Patch",
     },
     {
       question: "'Stakeholder' désigne une partie prenante d'un projet.",
       options: ["Vrai", "Faux"],
       reponse: "Vrai",
+      termeLie: "Stakeholder",
     },
   ],
 };
-
