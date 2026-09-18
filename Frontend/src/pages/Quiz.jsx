@@ -11,7 +11,7 @@ function Quiz() {
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [termine, setTermine] = useState(false);
-  const [popup, setPopup] = useState(null); // { correct: bool } ou null
+  const [popup, setPopup] = useState(null);
   const { mettreAJour } = useContext(ProgressContext);
 
   const questions = quiz[categorie] || [];
@@ -47,26 +47,45 @@ function Quiz() {
   return (
     <div className="page-competence">
       <h2>Quiz</h2>
-      <select value={categorie} onChange={(e) => recommencer(e.target.value)}>
-        {CATEGORIES.map((cat) => (
-          <option key={cat} value={cat}>{cat}</option>
-        ))}
-      </select>
 
-      {termine ? (
-        <p>Score : {score}/{questions.length}</p>
-      ) : questionActuelle ? (
-        <div>
-          <p>{questionActuelle.question}</p>
-          {questionActuelle.options.map((option) => (
-            <button key={option} onClick={() => repondre(option)}>
-              {option}
-            </button>
+      <div className="quiz-selecteur">
+        <select value={categorie} onChange={(e) => recommencer(e.target.value)}>
+          {CATEGORIES.map((cat) => (
+            <option key={cat} value={cat}>{cat}</option>
           ))}
-        </div>
-      ) : (
-        <p>Pas encore de questions pour cette catégorie.</p>
-      )}
+        </select>
+      </div>
+
+      <div className="quiz-carte">
+        {termine ? (
+          <div className="quiz-resultat">
+            <p className="quiz-score">Score : {score}/{questions.length}</p>
+            <button className="quiz-bouton" onClick={() => recommencer(categorie)}>
+              Recommencer
+            </button>
+          </div>
+        ) : questionActuelle ? (
+          <div>
+            <p className="quiz-progression-texte">
+              Question {indexQuestion + 1} / {questions.length}
+            </p>
+            <p className="quiz-question">{questionActuelle.question}</p>
+            <div className="quiz-options">
+              {questionActuelle.options.map((option) => (
+                <button
+                  key={option}
+                  className="quiz-bouton-option"
+                  onClick={() => repondre(option)}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <p>Pas encore de questions pour cette catégorie.</p>
+        )}
+      </div>
 
       {popup && (
         <PopupExplication
