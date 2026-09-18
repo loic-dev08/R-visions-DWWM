@@ -1,65 +1,33 @@
-// pages/Quiz.jsx
-import { useState, useContext } from "react";
-import { quiz } from "../data/quiz";
-import { ProgressContext } from "../context/ProgressContext";
+// pages/Lexique.jsx — uniquement le JSX à ajuster
+return (
+  <div className="page-competence">
+    <h2>Lexique</h2>
 
-const CATEGORIES = ["frontend", "backend", "javascript", "bdd", "css", "html", "anglaisPro"];
-
-function Quiz() {
-  const [categorie, setCategorie] = useState("javascript");
-  const [indexQuestion, setIndexQuestion] = useState(0);
-  const [score, setScore] = useState(0);
-  const [termine, setTermine] = useState(false);
-  const { mettreAJour } = useContext(ProgressContext);
-
-  const questions = quiz[categorie] || [];
-  const questionActuelle = questions[indexQuestion];
-
-  function repondre(option) {
-    const bonneReponse = option === questionActuelle.reponse;
-    if (bonneReponse) setScore((s) => s + 1);
-
-    if (indexQuestion + 1 < questions.length) {
-      setIndexQuestion((i) => i + 1);
-    } else {
-      const pourcentage = Math.round(((bonneReponse ? score + 1 : score) / questions.length) * 100);
-      mettreAJour(categorie, pourcentage);
-      setTermine(true);
-    }
-  }
-
-  function recommencer(nouvelleCategorie) {
-    setCategorie(nouvelleCategorie);
-    setIndexQuestion(0);
-    setScore(0);
-    setTermine(false);
-  }
-
-  return (
-    <div className="page-competence">
-      <h2>Quiz</h2>
-      <select value={categorie} onChange={(e) => recommencer(e.target.value)}>
+    <div className="lexique-filtres">
+      <select value={categorie} onChange={(e) => setCategorie(e.target.value)}>
         {CATEGORIES.map((cat) => (
           <option key={cat} value={cat}>{cat}</option>
         ))}
       </select>
+      <input
+        type="text"
+        placeholder="Rechercher un terme..."
+        value={recherche}
+        onChange={(e) => setRecherche(e.target.value)}
+      />
+    </div>
 
-      {termine ? (
-        <p>Score : {score}/{questions.length}</p>
-      ) : questionActuelle ? (
-        <div>
-          <p>{questionActuelle.question}</p>
-          {questionActuelle.options.map((option) => (
-            <button key={option} onClick={() => repondre(option)}>
-              {option}
-            </button>
-          ))}
-        </div>
+    <div className="lexique-grille">
+      {termes.length > 0 ? (
+        termes.map(({ terme, definition }) => (
+          <div className="lexique-carte" key={terme}>
+            <h3>{terme}</h3>
+            <p>{definition}</p>
+          </div>
+        ))
       ) : (
-        <p>Pas encore de questions pour cette catégorie.</p>
+        <p>Aucun terme trouvé pour cette recherche.</p>
       )}
     </div>
-  );
-}
-
-export default Quiz;
+  </div>
+);
