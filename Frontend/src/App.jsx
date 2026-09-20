@@ -33,7 +33,7 @@ function App() {
             <Route path="/css" element={<CSS />} />
             <Route path="html" element={<HTML />} />
             <Route path="anglais" element={<AnglaisPro />} />
-            <Route path="graphique" element={<Graphique />} />
+            <Route path="progression" element={<Graphique />} />
             <Route path="exercices" element={<Exercices />} />
           </Routes>
         </main>
