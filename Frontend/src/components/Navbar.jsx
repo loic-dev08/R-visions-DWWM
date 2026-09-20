@@ -26,6 +26,7 @@ function Navbar() {
         <li><NavLink to="/quiz" onClick={() => setOuvert(false)}>Quiz</NavLink></li>
         <li><NavLink to="/lexique" onClick={() => setOuvert(false)}>Lexique</NavLink></li>
         <li><NavLink to="/progression" onClick={() => setOuvert(false)}>Progression</NavLink></li>
+         <li><NavLink to="/exercices" onClick={() => setOuvert(false)}>Exercices</NavLink></li>
 
       </ul>
     </nav>

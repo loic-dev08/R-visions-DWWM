@@ -14,6 +14,7 @@ import CSS from "./pages/CSS";
 import HTML from "./pages/HTML";
 import AnglaisPro from "./pages/AnglaisPro";
 import Graphique from "./pages/Graphique";
+import Exercices from "./pages/Exercices";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="html" element={<HTML />} />
             <Route path="anglais" element={<AnglaisPro />} />
             <Route path="graphique" element={<Graphique />} />
+            <Route path="exercices" element={<Exercices />} />
           </Routes>
         </main>
         <Footer />
