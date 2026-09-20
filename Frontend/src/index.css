@@ -217,3 +217,14 @@ code {
     padding: 1.2rem;
   }
 }
+
+.quiz-alerte {
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+  color: #7a5b00;
+  font-size: 0.9rem;
+  text-align: left;
+}

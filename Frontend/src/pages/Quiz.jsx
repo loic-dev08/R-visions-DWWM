@@ -6,13 +6,23 @@ import PopupExplication from "../components/PopupExplication";
 
 const CATEGORIES = ["frontend", "backend", "javascript", "bdd", "css", "html", "anglaisPro"];
 
+const LABELS = {
+  frontend: "Frontend",
+  backend: "Backend",
+  javascript: "JavaScript",
+  bdd: "Base de données",
+  css: "CSS",
+  html: "HTML",
+  anglaisPro: "Anglais pro",
+};
+
 function Quiz() {
   const [categorie, setCategorie] = useState("javascript");
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [termine, setTermine] = useState(false);
   const [popup, setPopup] = useState(null);
-  const { mettreAJour } = useContext(ProgressContext);
+  const { progression, mettreAJour } = useContext(ProgressContext);
 
   const questions = quiz[categorie] || [];
   const questionActuelle = questions[indexQuestion];
@@ -44,6 +54,21 @@ function Quiz() {
     setPopup(null);
   }
 
+  // Trouve la compétence la plus faible parmi toutes (hors celle qu'on vient de faire)
+  function trouverThemePrioritaire() {
+    const autresCompetences = Object.entries(progression).filter(([cle]) => cle !== categorie);
+    if (autresCompetences.length === 0) return null;
+
+    const [themeMinCle, themeMinValeur] = autresCompetences.reduce((min, actuel) =>
+      actuel[1] < min[1] ? actuel : min
+    );
+
+    return { cle: themeMinCle, valeur: themeMinValeur };
+  }
+
+  const pourcentageActuel = questions.length > 0 ? Math.round((score / questions.length) * 100) : 0;
+  const themePrioritaire = termine ? trouverThemePrioritaire() : null;
+
   return (
     <div className="page-competence">
       <h2>Quiz</h2>
@@ -51,7 +76,7 @@ function Quiz() {
       <div className="quiz-selecteur">
         <select value={categorie} onChange={(e) => recommencer(e.target.value)}>
           {CATEGORIES.map((cat) => (
-            <option key={cat} value={cat}>{cat}</option>
+            <option key={cat} value={cat}>{LABELS[cat]}</option>
           ))}
         </select>
       </div>
@@ -60,6 +85,19 @@ function Quiz() {
         {termine ? (
           <div className="quiz-resultat">
             <p className="quiz-score">Score : {score}/{questions.length}</p>
+
+            {pourcentageActuel < 50 && (
+              <div className="quiz-alerte">
+                ⚠️ Ton score sur <strong>{LABELS[categorie]}</strong> est encore faible ({pourcentageActuel}%). Ce thème mérite d'être revu en priorité.
+              </div>
+            )}
+
+            {themePrioritaire && themePrioritaire.valeur < pourcentageActuel && themePrioritaire.valeur < 50 && (
+              <div className="quiz-alerte">
+                📌 D'après ta progression globale, <strong>{LABELS[themePrioritaire.cle]}</strong> ({themePrioritaire.valeur}%) est ton point le plus faible actuellement — pense à le réviser en priorité.
+              </div>
+            )}
+
             <button className="quiz-bouton" onClick={() => recommencer(categorie)}>
               Recommencer
             </button>
