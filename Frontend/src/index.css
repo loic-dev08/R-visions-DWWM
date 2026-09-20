@@ -109,3 +109,111 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* ---------- Exercices ---------- */
+.exercices-selecteur {
+  margin-bottom: 1.5rem;
+}
+
+.exercices-selecteur select {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #006994;
+  color: #006994;
+  font-weight: 500;
+}
+
+.exercice-carte {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 2px solid #006994;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.exercice-progression {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 0.75rem;
+}
+
+.exercice-enonce {
+  white-space: pre-wrap;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  color: var(--bleu-fonce);
+  background-color: #f4f8fb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.exercice-reponse {
+  width: 100%;
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.exercice-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.exercice-bouton {
+  background-color: #006994;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+}
+
+.exercice-bouton:hover {
+  background-color: #00435e;
+}
+
+.exercice-bouton.secondaire {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.exercice-bouton.secondaire:hover {
+  background-color: #bbdefb;
+}
+
+.exercice-correction {
+  margin-top: 1.5rem;
+  background-color: #e8f5e9;
+  border: 1px solid #66bb6a;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.exercice-correction-titre {
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.exercice-correction pre {
+  white-space: pre-wrap;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  color: #1b5e20;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .exercice-carte {
+    padding: 1.2rem;
+  }
+}
