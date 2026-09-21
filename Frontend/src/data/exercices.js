@@ -58,7 +58,88 @@ export const exercices = {
   <button type="submit">Envoyer</button>
 </form>`,
     },
+
+    {
+  enonce: "Écris le HTML d'une carte produit simple contenant : une image, un titre (h3), un prix, et un bouton \"Ajouter au panier\".",
+  correction: `<div class="carte-produit">
+  <img src="produit.jpg" alt="Nom du produit">
+  <h3>Nom du produit</h3>
+  <p>29,99 €</p>
+  <button>Ajouter au panier</button>
+</div>`,
+},
+{
+  enonce: "Écris une table HTML avec un en-tête (Nom, Âge, Ville) et deux lignes de données.",
+  correction: `<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Âge</th>
+      <th>Ville</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dupont</td>
+      <td>28</td>
+      <td>Lyon</td>
+    </tr>
+    <tr>
+      <td>Martin</td>
+      <td>34</td>
+      <td>Nantes</td>
+    </tr>
+  </tbody>
+</table>`,
+},
+{
+  enonce: "Corrige les erreurs sémantiques et d'accessibilité dans ce code :\n\n<div class=\"titre\">Bienvenue</div>\n<div class=\"image\"><img src=\"photo.jpg\"></div>",
+  correction: `<h1>Bienvenue</h1>
+<img src="photo.jpg" alt="Description de la photo">
+
+// Erreurs corrigées :
+// - un titre visuel doit être une vraie balise de titre (h1 à h6), pas un <div>
+// - une image doit toujours avoir un attribut alt pour l'accessibilité`,
+},
+{
+  enonce: "Écris le HTML d'une liste déroulante (select) permettant de choisir un pays parmi France, Belgique, Suisse.",
+  correction: `<label for="pays">Pays</label>
+<select id="pays" name="pays">
+  <option value="france">France</option>
+  <option value="belgique">Belgique</option>
+  <option value="suisse">Suisse</option>
+</select>`,
+},
+{
+  enonce: "Écris la structure HTML sémantique complète d'une page simple : en-tête, navigation, contenu principal, et pied de page.",
+  correction: `<body>
+  <header>
+    <h1>Nom du site</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <p>Contenu principal de la page.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Mon site</p>
+  </footer>
+</body>`,
+},
+{
+  enonce: "Écris le HTML d'un champ de formulaire pour uploader un fichier, avec un label associé.",
+  correction: `<label for="fichier">Choisir un fichier</label>
+<input type="file" id="fichier" name="fichier">`,
+},
   ],
+
 
   bdd: [
     {
