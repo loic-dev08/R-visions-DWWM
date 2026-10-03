@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-top">
-        <img src="/revision.png" alt="Logo Révisions DWWM" className="navbar-logo" />
+        <img src="/revisions-dwwm.png" alt="Logo Révisions DWWM" className="navbar-logo" />
         <button className="burger" onClick={() => setOuvert(!ouvert)} aria-label="Ouvrir le menu">
           ☰
         </button>
