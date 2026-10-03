@@ -425,8 +425,18 @@ body {
 @media (max-width: 600px) {
   .quiz-carte {
     padding: 1.2rem;
+    .navbar.logo {
+      height: 50px;
+    }
   }
   .lexique-grille {
     grid-template-columns: 1fr;
   }
+}
+
+.navbar-logo {
+  height: 70px;
+  width: auto;
+  display: block;
+  border-radius: 8px; /* adoucit le fond blanc du .jpg */
 }
